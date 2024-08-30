@@ -1,3 +1,4 @@
+import os
 import time
 import cv2
 import streamlit as st
@@ -80,8 +81,8 @@ def main():
         submitted = st.button('Submit')
 
     if img_content == 'Tsukuba':
-        left_img_path = 'img/Tsukuba/left.png'
-        right_img_path = 'img/Tsukuba/right.png'
+        left_img_path = 'img/tsukuba/left.png'
+        right_img_path = 'img/tsukuba/right.png'
     elif img_content == 'Aloe':
         left_img_path = 'img/Aloe/Aloe_left_1.png'
         if aloe_right_version == 'Version 1':

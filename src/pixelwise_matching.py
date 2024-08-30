@@ -3,10 +3,13 @@ import numpy as np
 from src.metrics import PixelWiseMetrics
 
 def pixel_wise_matching(left_img_path, right_img_path, similiarity_type, disparity_range, scale=16):
-    # Read left , right images then convert to grayscale
-    left = cv2.imread(left_img_path, 0).astype(dtype=np.float32)
-    right = cv2.imread(right_img_path, 0).astype(dtype=np.float32)
-    
+    # Read left, right images then convert to grayscale
+    left  = cv2.imread(left_img_path, 0)
+    right = cv2.imread(right_img_path, 0)
+
+    left  = left.astype(np.float32)
+    right = right.astype(np.float32)
+
     height, width = left.shape[:2]
     
     # Metric option
