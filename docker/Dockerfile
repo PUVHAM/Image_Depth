@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \  
     curl \ 
     ffmpeg \
@@ -12,8 +12,11 @@ RUN apt-get update && apt-get install -y \
     wget \ 
     && rm -rf /var/lib/apt/lists/*
 
-COPY . /app
-
+COPY requirements.txt /app/requirements.txt
+COPY src/ /app/src/
+COPY app.py /app/app.py
+COPY img/ /app/img/
+    
 RUN pip3 install -r requirements.txt
 
 EXPOSE 8501
